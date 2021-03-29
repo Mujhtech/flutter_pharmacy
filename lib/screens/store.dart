@@ -69,16 +69,27 @@ class _StoreScreenState extends State<StoreScreen> {
                   crossAxisSpacing: 5.0,
                   mainAxisSpacing: 5.0,
                   childAspectRatio: 0.8,
-                  children: List.generate(10, (index) {
+                  children: List.generate(productLists.length, (index) {
                     return InkWell(
                       onTap: () => Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return SingleProductScreen();
+                        return SingleProductScreen(
+                          title: productLists[index].name,
+                          price: productLists[index].price,
+                          soldby: productLists[index].soldBy,
+                          id: productLists[index].id,
+                          constituents: productLists[index].constituents,
+                          packSize: productLists[index].packSize,
+                          dispenseMethod: productLists[index].dispenseMethod,
+                        );
                       })),
                       child: Padding(
                         padding:
                             const EdgeInsets.only(left: 10, top: 10, right: 10),
-                        child: ProductCard(),
+                        child: ProductCard(
+                          title: productLists[index].name,
+                          price: productLists[index].price,
+                        ),
                       ),
                     );
                   }),

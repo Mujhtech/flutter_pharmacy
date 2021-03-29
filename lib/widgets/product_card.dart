@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:pharmacy_design/constants.dart';
 
 class ProductCard extends StatelessWidget {
+  final int price;
+  final String title;
+  ProductCard({this.price, this.title});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,7 +32,7 @@ class ProductCard extends StatelessWidget {
               height: 120,
             ),
           ),
-          Text('Galic Oil'),
+          Text(title),
           Text('Galic Oil'),
           Text('Oral Suspension 250mg'),
           SizedBox(
@@ -45,7 +48,7 @@ class ProductCard extends StatelessWidget {
                   color: Constants.grayColor,
                 ),
                 child: Text(
-                  'NGN 250',
+                  'NGN $price',
                   style: TextStyle(color: Colors.white),
                 ),
               ),

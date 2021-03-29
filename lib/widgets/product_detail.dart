@@ -19,14 +19,21 @@ class ProductDetail extends StatelessWidget {
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              text1,
-              style: TextStyle(fontSize: 14, color: Constants.grayColor),
+            Flexible(
+              child: Text(
+                text1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(fontSize: 14, color: Constants.grayColor),
+              ),
             ),
-            Text(
-              text2,
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+            Flexible(
+              child: Text(
+                text2,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+              ),
             )
           ],
         )

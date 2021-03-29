@@ -4,6 +4,21 @@ import 'package:pharmacy_design/widgets/cart_increment.dart';
 import 'package:pharmacy_design/widgets/product_detail.dart';
 
 class SingleProductScreen extends StatelessWidget {
+  final int price;
+  final String title;
+  final String soldby;
+  final String id;
+  final String dispenseMethod;
+  final String constituents;
+  final String packSize;
+  SingleProductScreen(
+      {this.price,
+      this.title,
+      this.soldby,
+      this.constituents,
+      this.dispenseMethod,
+      this.id,
+      this.packSize});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +36,7 @@ class SingleProductScreen extends StatelessWidget {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          'Galic Oil',
+          title,
           style: TextStyle(
               fontWeight: FontWeight.w600, color: Colors.black, fontSize: 18),
         ),
@@ -67,7 +82,7 @@ class SingleProductScreen extends StatelessWidget {
               ),
             ),
             Text(
-              'Galic Oil',
+              title,
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
             ),
             Text(
@@ -94,7 +109,7 @@ class SingleProductScreen extends StatelessWidget {
                           TextStyle(fontSize: 14, color: Constants.grayColor),
                     ),
                     Text(
-                      'Oral Suspension 250mg',
+                      soldby,
                       style:
                           TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                     ),
@@ -110,7 +125,7 @@ class SingleProductScreen extends StatelessWidget {
               children: [
                 CartIncrement(),
                 Text(
-                  'NGN 350',
+                  'NGN $price',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                 ),
               ],
@@ -133,12 +148,12 @@ class SingleProductScreen extends StatelessWidget {
               children: [
                 ProductDetail(
                   text1: "Pack Size",
-                  text2: "UKH657342",
+                  text2: packSize,
                   icon: Icons.qr_code_scanner,
                 ),
                 ProductDetail(
                   text1: "Product ID",
-                  text2: "UKH657342",
+                  text2: id,
                   icon: Icons.qr_code_scanner,
                 )
               ],
@@ -148,7 +163,7 @@ class SingleProductScreen extends StatelessWidget {
             ),
             ProductDetail(
               text1: "Constituents",
-              text2: "UKH657342",
+              text2: constituents,
               icon: Icons.qr_code_scanner,
             ),
             SizedBox(
@@ -156,7 +171,7 @@ class SingleProductScreen extends StatelessWidget {
             ),
             ProductDetail(
               text1: "Dispensed In",
-              text2: "UKH657342",
+              text2: dispenseMethod,
               icon: Icons.qr_code_scanner,
             ),
             SizedBox(
